@@ -25,27 +25,27 @@ document.querySelector(".temp").innerHTML = Math.round(data.main.temp)+"°C";
 document.querySelector(".humidity-rate").innerHTML = data.main.humidity+"%";
 document.querySelector(".wind-rate").innerHTML = data.wind.speed+" km/h";
 if(data.weather[0].main=="Clouds"){
-weather_icon.src = "../images/clouds.png";
+weather_icon.src = "clouds.png";
 }
 else if(data.weather[0].main == "Rain")
 {
-    weather_icon.src = "../images/rain.png";
+    weather_icon.src = "rain.png";
 }
 else if(data.weather[0].main=="Clear")
 {
-    weather_icon.src = "../images/clear.png";
+    weather_icon.src = "clear.png";
 }
 else if(data.weather[0].main=="Drizzle")
 {
-    weather_icon.src = "../images/drizzle.png";
+    weather_icon.src = "drizzle.png";
 }
 else if(data.weather[0].main=="Snow")
 {
-    weather_icon.src = "../images/snow.png";
+    weather_icon.src = "snow.png";
 }
 else if(data.weather[0].main=="Mist")
 {
-    weather_icon="../images/mist.png";
+    weather_icon="mist.png";
 }
 }
 }
