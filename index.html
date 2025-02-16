@@ -3,57 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AK WeatherReport</title>
+    <title>AK Weather Report</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="noaa-JG_HfydoNqY-unsplash.jpg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-</head>
-<body style="background: url('noaa-JG_HfydoNqY-unsplash.jpg');">
-    <h1 class="heading">AK Weather DashBoard</h1>
     
-      <div class="container-web">
+    <style>
+        /* Custom Styles */
+        body {
+            background: url('noaa-JG_HfydoNqY-unsplash.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .heading {
+            text-align: center;
+            margin: 20px 0;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .container-web {
+            max-width: 500px;
+            margin: 30px auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .inputbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .inputbox img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .inputbox input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .inputbox button {
+            padding: 10px 15px;
+            border: none;
+            background: #28a745;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .inputbox button:hover {
+            background: #218838;
+        }
+
+        .weather-result {
+            text-align: center;
+        }
+
+        .weather-logo {
+            width: 100px;
+            height: 100px;
+        }
+
+        .temp {
+            font-size: 40px;
+            font-weight: 600;
+        }
+
+        .city {
+            font-size: 30px;
+            font-weight: 500;
+        }
+
+        .Humidity-and-air {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .humidity img, .wind img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .humidity-text, .wind-text {
+            font-size: 18px;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .container-web {
+                width: 90%;
+            }
+
+            .temp {
+                font-size: 32px;
+            }
+
+            .city {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading">AK Weather Dashboard</h1>
+
+    <div class="container-web">
         <div class="con">
-           
+            <!-- Input Section -->
             <div class="inputbox">
                 <img src="downloadlogo.png" alt="weather-img">
-                <input type="text" id="cityname" value="Enter city name" spellcheck="false">
-                <button onclick="checkWeather()" id="btn">search</button>
+                <input type="text" id="cityname" class="form-control" placeholder="Enter city name" spellcheck="false">
+                <button onclick="checkWeather()" class="btn btn-success">Search</button>
             </div>
+
+            <!-- Weather Result -->
             <div class="weather-result">
                 <img src="rain.png" class="weather-logo" alt="normal-logo">
                 <h1 class="temp">22°C</h1>
                 <h2 class="city">New York</h2>
             </div>
-            <div class = "Humidity-and-air">
-                <div class="humidity">
-                   <div class="res">
+
+            <!-- Humidity & Wind Section -->
+            <div class="Humidity-and-air row text-center">
+                <div class="col-4">
                     <img src="humidity.png" alt="humidity-logo">
                     <p class="humidity-rate">50%</p>
-                   </div>
                     <p class="humidity-text">Humidity</p>
                 </div>
-                <div class="humidity">
-                  <div class="res">
-                     <img src="240_F_368827414_ofJKFxqBwMxhlS2ldjnDTGehwXvxzRKe.jpg" alt="visibility logo">
-                     <div class="humidity-rete">5000</div>
-                  </div>
-                  <p class="humidity-text">Visibility</p>
+
+                <div class="col-4">
+                    <img src="240_F_368827414_ofJKFxqBwMxhlS2ldjnDTGehwXvxzRKe.jpg" alt="visibility logo">
+                    <p class="humidity-rate">5000m</p>
+                    <p class="humidity-text">Visibility</p>
                 </div>
-                <div class="wind">
-                  <div class="Res">
+
+                <div class="col-4">
                     <img src="wind.png" alt="wind-logo">
                     <p class="wind-rate">46 Km/h</p>
-                  </div>
                     <p class="wind-text">Wind Speed</p>
                 </div>
-        
             </div>
-            
         </div>
-      </div>    
+    </div>    
 
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
